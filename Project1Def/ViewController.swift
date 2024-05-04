@@ -11,25 +11,17 @@ class ViewController: UIViewController {
     
     var copies = ["Primer texto", "Segunto texto", "Tercer Texto","Cuarto Texto", "Quinto Texto"]
     var currentIndex = 0
-    var currentIndex2 = 0
     
     @IBOutlet weak var imageToChange: UIImageView!
-    
-    
     @IBOutlet weak var textToChange: UILabel!
-    
-    
     @IBOutlet weak var buttonToChangeText: UIButton!
-    
-    
-    @IBOutlet weak var buttonToChangeColorFont: UIButton!
-    
+    @IBOutlet weak var navigationButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         buttonToChangeText.setTitle("Cambiar Motocicleta", for: .normal)
-        buttonToChangeColorFont.setTitle("Cambiar color de texto", for: .normal)
+        navigationButton.setTitle("Navegar", for: .normal)
     }
 
     @IBAction func changeText(_ sender: Any) {
@@ -41,14 +33,9 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func changeColorFont(_ sender: Any) {
+    @IBAction func navigationButton(_ sender: Any) {
         
-        if currentIndex < copies.count{
-            textToChange.textColor = .purple
-            currentIndex2 += 1
-        } else {
-            currentIndex2 = 0
-        }
+        self.navigationController?.pushViewController(ViewController2(), animated: true)
         
     }
 }
